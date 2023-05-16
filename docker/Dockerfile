@@ -39,7 +39,7 @@ ENV S6_SERVICES_GRACETIME=30000 \
     PUID=0 \
     PGID=0 \
     UMASK=000 \
-    WORKDIR="/nas-tools"
+    WORKDIR="/NAS-TOOL"
 WORKDIR ${WORKDIR}
 RUN mkdir ${HOME} \
     && addgroup -S nt -g 911 \
@@ -52,7 +52,7 @@ RUN mkdir ${HOME} \
     && git config --global pull.ff only \
     && git clone -b master ${REPO_URL} ${WORKDIR} --depth=1 --recurse-submodule \
     && git config --global --add safe.directory ${WORKDIR} \
-    && chmod +x /nas-tools/docker/entrypoint.sh
+    && chmod +x /NAS-TOOL/docker/entrypoint.sh
 EXPOSE 3000
 VOLUME ["/config"]
 ENTRYPOINT [ "/init" ]
